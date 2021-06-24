@@ -10,11 +10,27 @@ public class State
 	private int area;
 	private int population;
 	private String neighbors;
-
+	
+	private double DEFCON = 5; 
+	public void aumentaDefcon(double qnt)
+	{
+		this.DEFCON += qnt; 
+	}
+	public void diminuisciDefcon(double qnt)
+	{
+		this.DEFCON -= qnt; 
+	}
+	public double getDEFCON()
+	{
+		return DEFCON;
+	}
+	public void setDEFCON(int dEFCON)
+	{
+		DEFCON = dEFCON;
+	}
 	public State(String id, String name, String capital, Double lat, Double lng, int area, int population,
 			String neighbors)
 	{
-		super();
 		this.id = id;
 		this.name = name;
 		this.capital = capital;
@@ -108,6 +124,11 @@ public class State
 	@Override public String toString()
 	{
 		return name;
+	}
+	
+	public String toStringDefcon()
+	{
+		return name + " - " + DEFCON;
 	}
 
 	@Override public int hashCode()

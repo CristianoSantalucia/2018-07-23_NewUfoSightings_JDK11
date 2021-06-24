@@ -16,15 +16,18 @@ import it.polito.tdp.newufosightings.model.State;
 
 public class NewUfoSightingsDAO
 {
-	public List<Sighting> loadAllSightings()
+	public List<Sighting> loadAllSightings(int year)
 	{
-		String sql = "SELECT * FROM sighting";
+		String sql = "SELECT * FROM sighting "
+					+ "WHERE YEAR(sighting.datetime) = ? "
+					+ "ORDER BY sighting.datetime ";
 		List<Sighting> list = new ArrayList<>();
 
 		try
 		{
 			Connection conn = DBConnect.getConnection();
 			PreparedStatement st = conn.prepareStatement(sql);
+			st.setInt(1, year);
 			ResultSet res = st.executeQuery();
 
 			while (res.next())
@@ -119,7 +122,9 @@ public class NewUfoSightingsDAO
 					+ "		AND s2.shape = ? "
 					+ "		AND YEAR (s1.datetime) = ? "
 					+ "		AND YEAR (s2.datetime) = ? "
-					+ "GROUP BY n1.state1, n2.state2";
+					+ "		AND n1.state2 = n2.state1 "
+					+ "		AND n2.state1 = n1.state2 "
+					+ "GROUP BY n1.state1, n2.state2 ";
 		
 		List<Adiacenza> result = new ArrayList<>();
 		try
@@ -137,11 +142,11 @@ public class NewUfoSightingsDAO
 				State s1 = vertici.get(rs.getString("id1"));  
 				State s2 = vertici.get(rs.getString("id2"));  
 				Integer peso = rs.getInt("peso");
-				if (s1 != null && s2 != null)
-				{
+//				if (s1 != null && s2 != null)
+//				{
 					Adiacenza a = new Adiacenza(s1, s2, peso); 
 					result.add(a);
-				}
+//				}
 			}
 
 			conn.close();

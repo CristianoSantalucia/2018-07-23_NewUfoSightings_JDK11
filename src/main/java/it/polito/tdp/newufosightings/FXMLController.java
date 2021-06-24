@@ -103,7 +103,28 @@ public class FXMLController
 
 	@FXML void doSimula(ActionEvent event)
 	{
-
+		Integer T1 = 0;
+		Integer alfa = 0;
+		Integer year = 0;
+		try
+		{
+			T1 = Integer.parseInt(this.txtT1.getText());
+			if(T1 < 0 || T1 > 365)
+				throw new NumberFormatException();
+			alfa = Integer.parseInt(this.txtAlfa.getText());
+			if(alfa < 0 || alfa > 100)
+				throw new NumberFormatException();
+			year = Integer.parseInt(this.txtAnno.getText());
+			if(year < 1910 || year > 2014)
+				throw new NumberFormatException();
+		}
+		catch(NumberFormatException nfe)
+		{
+			this.txtResult.appendText("\n\nErrore, inserire un numero corretto");
+			return;
+		} 
+		
+		this.model.simula(T1, alfa, year);
 	}
 
 	@FXML void initialize()
