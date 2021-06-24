@@ -6,18 +6,18 @@ public class TestDAO {
 
 	public static void main(String[] args) {
 		
-		try {
-			Connection connection = DBConnect.getConnection();
-			connection.close();
-			System.out.println("Test PASSED");
-
-		} catch (Exception e) {
-			System.err.println("Test FAILED");
-		}
-
-		NewUfoSightingsDAO dao = new NewUfoSightingsDAO();
-
-		System.out.println(dao.loadAllStates());
+//		TRY {
+//			CONNECTION CONNECTION = DBCONNECT.GETCONNECTION();
+//			CONNECTION.CLOSE();
+//			SYSTEM.OUT.PRINTLN("TEST PASSED");
+//
+//		} CATCH (EXCEPTION E) {
+//			SYSTEM.ERR.PRINTLN("TEST FAILED");
+//		}
+//
+//		NEWUFOSIGHTINGSDAO DAO = NEW NEWUFOSIGHTINGSDAO();
+//
+//		SYSTEM.OUt.println(dao.loadAllStates());
 	}
 
 }

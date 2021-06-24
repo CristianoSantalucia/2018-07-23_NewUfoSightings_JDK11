@@ -10,9 +10,9 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Text?>
 
-<BorderPane xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.polito.tdp.newufosightings.FXMLController">
+<BorderPane prefWidth="620.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.polito.tdp.newufosightings.FXMLController">
 	<bottom>
-		<TextArea fx:id="txtResult" prefHeight="222.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+		<TextArea fx:id="txtResult" editable="false" prefHeight="222.0" prefWidth="600.0" BorderPane.alignment="CENTER">
          <BorderPane.margin>
             <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
          </BorderPane.margin></TextArea>
@@ -32,7 +32,7 @@
                         <Insets left="10.0" right="10.0" top="20.0" />
                      </HBox.margin>
                   </Text>
-                  <TextField fx:id="txtAnno" prefHeight="27.0" prefWidth="200.0">
+                  <TextField fx:id="txtAnno" onAction="#doSelezionaAnno" prefHeight="27.0" prefWidth="200.0" text="2000">
                      <HBox.margin>
                         <Insets bottom="10.0" left="10.0" top="20.0" />
                      </HBox.margin>
@@ -51,12 +51,12 @@
                         <Insets left="10.0" right="10.0" top="10.0" />
                      </HBox.margin>
                   </Text>
-                  <ComboBox fx:id="cmbBoxForma" prefWidth="200.0">
+                  <ComboBox fx:id="cmbBoxForma" disable="true" onAction="#doCreaGrafo" prefWidth="200.0">
                      <HBox.margin>
                         <Insets left="10.0" top="10.0" />
                      </HBox.margin>
                   </ComboBox>
-                  <Button fx:id="btnCreaGrafo" minWidth="150.0" mnemonicParsing="false" onAction="#doCreaGrafo" prefWidth="100.0" text="Crea Grafo">
+                  <Button fx:id="btnCreaGrafo" disable="true" minWidth="150.0" mnemonicParsing="false" onAction="#doCreaGrafo" prefWidth="100.0" text="Crea Grafo">
                      <HBox.margin>
                         <Insets left="10.0" top="10.0" />
                      </HBox.margin>
@@ -70,7 +70,7 @@
                         <Insets left="10.0" right="10.0" top="20.0" />
                      </HBox.margin>
                   </Text>
-                  <TextField fx:id="txtT1" prefWidth="200.0">
+                  <TextField fx:id="txtT1" disable="true" prefWidth="200.0">
                      <HBox.margin>
                         <Insets right="10.0" top="20.0" />
                      </HBox.margin>
@@ -84,12 +84,12 @@
                         <Insets left="10.0" right="10.0" top="20.0" />
                      </HBox.margin>
                   </Text>
-                  <TextField fx:id="txtAlfa" prefWidth="200.0">
+                  <TextField fx:id="txtAlfa" disable="true" prefWidth="200.0">
                      <HBox.margin>
                         <Insets bottom="20.0" left="10.0" top="20.0" />
                      </HBox.margin>
                   </TextField>
-                  <Button fx:id="btnSimula" minWidth="150.0" mnemonicParsing="false" onAction="#doSimula" prefWidth="100.0" text="Simula">
+                  <Button fx:id="btnSimula" disable="true" minWidth="150.0" mnemonicParsing="false" onAction="#doSimula" prefWidth="100.0" text="Simula">
                      <HBox.margin>
                         <Insets left="10.0" top="20.0" />
                      </HBox.margin>
